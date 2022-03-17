@@ -4,14 +4,14 @@
 
 if test $(ls /home/"$USER" -l -t | grep '^d' | grep 'bin[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]' | wc -l) -eq 0 
 then 
-	dir=$(mktemp -d /home/"$USER"/binXXX)
-  echo "esto es el FUCNGIIGAIJSDAJSD dir ->>>>>>>>>>>>>>>>> $dir"
+	dir=$(mktemp -d ${HOME}/binXXX)
   echo "Se ha creado el directorio $dir"
 else
-	dir=$(ls /home/"$USER" -r -l -t | grep '^d' | grep 'bin[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]' | cut -f13 -d" " | head -n1)
+	dir=$(ls $HOME -r -l -t | grep '^d' | grep 'bin[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]' | cut -f9 -d" " | head -n1)
+	dir=${HOME}/$dir
 fi
 
-echo "Directorio destino de copia: /home/$USER/$dir"
+echo "Directorio destino de copia: $dir"
 
 total=0
 for i in $(ls) #cualquier cosa que no sea un dir y sea ejecutable

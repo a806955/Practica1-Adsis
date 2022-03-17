@@ -1,6 +1,6 @@
 #!/bin/bash
 #800616, Beltran Pardos, Miguel, T, 1, B
-#805467, Gonzalez Pizarro, Laura, T, 1, B
+
 
 if test "$#" -eq 1; then
 	if test -f "$1"; then
